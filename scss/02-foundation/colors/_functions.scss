@@ -1,0 +1,11 @@
+////
+/// @group Colors
+////
+
+/// Get color from color palette map
+/// @param {string} $color
+/// @param {string} $tone [base]
+@function get-color($color, $tone: 'base') {
+  $c: map-get(map-get($palettes, $color), $tone);
+  @return $c;
+}

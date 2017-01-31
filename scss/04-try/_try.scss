@@ -1,0 +1,231 @@
+////
+/// @group Design
+////
+
+
+@mixin baseline() {
+  $base-line-half: $base-line-px / 2;
+  $c--gray--light: lightgray;
+  $c--gray--lighter: lighten(lightgray, 20%);
+  background-image: repeating-linear-gradient(to bottom, transparent, transparent $base-line-half - 1, $c--gray--light $base-line-half, transparent $base-line-half + 1, transparent $base-line-px - 1, $c--gray--lighter $base-line-px);
+  background-size: 100% $base-line-px;
+}
+
+
+/// Draw an outline around an element for debugging.
+/// @param {color} $color [red] - color of the outline
+@mixin debug($color: red) {
+  outline: 1px solid $color;
+}
+
+/// Try colors from project palette as text and background-color. [map].
+/// Writes values as commented-out css you can turn on and off in your browser inspector
+/// @link https://github.com/at-import/try
+@mixin try-colors() {
+  @each $palette, $items in $palettes {
+    @each $name, $value in $items {
+      /* color: #{$value}; */
+      /* background-color: #{$value}; */
+    }
+  }
+}
+
+/// Try borders with colors from project palette [map].
+/// Writes values as commented-out css you can turn on and off in your browser inspector
+/// @link https://github.com/at-import/try
+/// @param {number} $width [1px]
+/// @param {string} $style [solid]
+@mixin try-borders($width: 1px, $style: solid) {
+  /* border-width: #{$width}; */
+  /* border-style: #{$style}; */
+  @each $palette, $items in $palettes {
+    @each $name, $value in $items {
+      /* border-color: #{$value}; */
+    }
+  }
+}
+
+/// Try fonts from the project font map.
+/// Writes values as commented-out css you can turn on and off in your browser inspector
+/// @link https://github.com/at-import/try
+@mixin try-fonts() {
+  @each $font-var, $font-val in $font-map {
+    /* font-family: #{$font-val}; */
+  }
+}
+
+/// Try font weights.
+/// Writes values as commented-out css you can turn on and off in your browser inspector
+/// @link https://github.com/at-import/try
+@mixin try-font-weights() {
+  @each $font-weight in (200, 300, 400, 500, 600, 700, 800) {
+    /* font-weight: #{$font-weight}; */
+  }
+}
+
+/// Try font styles.
+/// Writes values as commented-out css you can turn on and off in your browser inspector
+/// @link https://github.com/at-import/try
+@mixin try-font-styles() {
+  @each $font-style in (normal, italic) {
+    /* font-style: #{$font-style}; */
+  }
+}
+
+/// Try text-transformations
+/// Writes values as commented-out css you can turn on and off in your browser inspector
+/// @link https://github.com/at-import/try
+@mixin try-text-transform() {
+  @each $text-transform in (capitalize, lowercase, none, uppercase) {
+    /* text-transform: #{$text-transform}; */
+  }
+}
+
+/// Try font sizes using Modular Scale.
+/// Writes values as commented-out css you can turn on and off in your browser inspector
+/// @link https://github.com/at-import/try
+/// @param {integer} $s [0] - starting position in the scale
+/// @param {integer} $count [10] - how many places to move along the scale
+@mixin try-ms($s: 0, $count: 10) {
+  @for $i from $s through $count {
+    $ms: ms($i);
+    /* font-size: #{$ms}; */
+    /* ms: "ms(#{$i})" */
+  }
+}
+
+/// Try all available values in mix-blend-mode.
+/// Writes values as commented-out css you can turn on and off in your browser inspector
+/// @link https://github.com/at-import/try
+@mixin try-blend-modes() {
+  @each $blend-mode in (normal, multiply, screen, overlay, darken, lighten, color-dodge, color-burn, hard-light, soft-light, difference, exclusion, hue, saturation, color, luminosity) {
+    /* mix-blend-mode: #{$blend-mode}; */
+  }
+}
+
+/// /// Try all available values in background-blend-mode.
+/// Writes values as commented-out css you can turn on and off in your browser inspector
+/// @link https://github.com/at-import/try
+@mixin try-background-blend-modes() {
+  @each $blend-mode in (normal, multiply, screen, overlay, darken, lighten, color-dodge, color-burn, hard-light, soft-light, difference, exclusion, hue, saturation, color, luminosity) {
+    /* background-blend-mode: #{$blend-mode}; */
+  }
+}
+
+/// Try different background gradients.
+/// Writes values as commented-out css you can turn on and off in your browser inspector
+/// @param {string} $direction [to bottom right] - gradient direction
+/// @param {percentage} $saturation [15%] - how much to change the color saturation
+/// @param {percentage} $lightness [10%] - how much to change the color lightness
+/// @param {number} $alpha [0] - how much to change the color alpha
+@mixin try-background-gradients($direction: to bottom right, $saturation: 15%, $lightness: 10%, $alpha: 0) {
+  @each $palette, $items in $palettes {
+    @each $name, $value in $items {
+      $c: $value;
+      $cs: adjust-color($c, $saturation: $saturation, $lightness: $lightness, $alpha: $alpha);
+      /* background-image: linear-gradient(#{$direction}, #{$c}, #{$cs}); */
+    }
+  }
+}
+
+/// Try background images.
+/// Writes values as commented-out css you can turn on and off in your browser inspector
+/// Images pulled from https://unsplash.it
+/// @link https://github.com/at-import/try
+/// @param {integer} $width [1600] - width
+/// @param {integer} $height [900] - height
+/// @param {boolean} $random [true] - pull a random image from the service
+/// @param {integer} $image [null] - pick a specific image from the service
+/// @param {boolean} $grayscale [false] - convert the image to grayscale
+/// @param {boolean} $blue [false] - blur the image
+/// @param {string} $crop-gravity [null] - where to anchor the image when it's cropped
+@mixin try-background-image($width: 1600, $height: 900, $random: true, $image: null, $grayscale: false, $blur: false, $crop-gravity: null) {
+  $params: ();
+  @if ($grayscale == true) {
+    $params: append($params, "/g");
+  }
+  $params: append($params, "/#{$width}");
+  $params: append($params, "/#{$height}");
+  $args: ();
+  @if ($image != null) {
+    $args: append($args, "image=#{$image}");
+    $random: false;
+  }
+  @if ($random == true) {
+    $args: append($args, "random");
+  }
+  @if ($blur == true) {
+    $args: append($args, "blur");
+  }
+  @if ($crop-gravity != null) {
+    $args: append($args, "gravity=#{$crop-gravity}");
+  }
+  $param-string: '';
+  @each $param in $params {
+    $param-string: $param-string + $param;
+  }
+  $arg-string: '';
+  @each $arg in $args {
+    $arg-string: $arg-string + $arg + "&";
+  }
+  /* background-image: url('http://unsplash.it#{$param-string}?#{$arg-string}'); */
+}
+
+/// Try letter spacing.
+/// Writes values as commented-out css you can turn on and off in your browser inspector
+/// @link https://github.com/at-import/try
+/// @param {number} $end [1] - last letter-spacing value
+/// @param {number} $increment [0.2] - how much to increase the spacing with each advance
+/// @param {unit} $unit [px]
+@mixin try-letter-spacing($end: 1, $increment: 0.2, $unit: px) {
+  $count: 0;
+  @while($count < $end) {
+    /* letter-spacing: #{$count}#{$unit}; */
+    $count: $count + $increment;
+  }
+}
+
+/// Try line-height.
+/// Writes values as commented-out css you can turn on and off in your browser inspector
+/// @link https://github.com/at-import/try
+/// @param {number} $end [1] - last line-height value
+/// @param {number} $increment [0.1] - how much to increase the line-height with each advance
+@mixin try-line-height($end: 2, $increment: 0.1) {
+  $count: 1;
+  @while($count < $end) {
+    /* line-height: #{$count}; */
+    $count: $count + $increment;
+  }
+}
+
+/// Try all the "Try" mixins at once.
+/// Writes values as commented-out css you can turn on and off in your browser inspector
+/// @link https://github.com/at-import/try
+@mixin try-all() {
+  @include try-colors();
+  @include try-borders();
+  @include try-fonts();
+  @include try-font-weights();
+  @include try-font-styles();
+  @include try-ms();
+  @include try-text-transform();
+  @include try-blend-modes();
+  @include try-background-blend-modes();
+  @include try-background-gradients();
+  @include try-background-image();
+  @include try-letter-spacing();
+  @include try-line-height();
+}
+
+/// Try all typography mixins at once
+/// Writes values as commented-out css you can turn on and off in your browser inspector
+/// @link https://github.com/at-import/try
+@mixin try-all-type() {
+  @include try-fonts();
+  @include try-font-weights();
+  @include try-font-styles();
+  @include try-ms();
+  @include try-line-height();
+  @include try-text-transform();
+  @include try-letter-spacing();
+}

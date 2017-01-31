@@ -1,0 +1,21 @@
+////
+/// @group Forms
+////
+
+/// Set button defaults
+@mixin button() {
+  @include link-clean();
+  @include set-link-colors(
+    $link-normal: get-color(white),
+    $link-hover: get-color(gray, light),
+    $link-active: get-color(gray, light),
+    $link-visited: get-color(white),
+    $link-focus: get-color(gray, light)
+  );
+  display: inline-block;
+  border-radius: 0.2em;
+  background-color: get-color(gray);
+  padding: 3px 0.5em;
+  text-align: center;
+  text-decoration: none;
+}

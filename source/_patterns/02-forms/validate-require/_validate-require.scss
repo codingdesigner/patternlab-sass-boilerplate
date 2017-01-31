@@ -1,0 +1,9 @@
+////
+/// @group validate-require
+////
+
+.validation-notice,
+.required-notice {
+  display: none;
+  color: get-color(red);
+}

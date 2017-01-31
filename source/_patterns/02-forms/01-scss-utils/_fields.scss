@@ -1,0 +1,31 @@
+////
+/// @group Forms
+////
+
+/// limit the width of a field
+/// @param {number} $max-width [25em]
+@mixin field-limit-width($max-width: 25em) {
+  width: 100%;
+  max-width: $max-width;
+}
+
+/// Set field defaults
+/// @param {number | null} $limit-width [null]
+@mixin defaults--field($limit-width: null) {
+  border: 1px solid get-color(gray, light);
+  padding: 0.125em 0.5rem;
+  @if ($limit-width) {
+    @include field-limit-width($limit-width);
+  }
+}
+
+///
+@mixin defaults--field--checkboxes-radios() {
+  width: inherit;
+}
+
+///
+@mixin defaults--field--select() {
+  @include defaults--field();
+  width: auto;
+}

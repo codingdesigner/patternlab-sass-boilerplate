@@ -1,0 +1,26 @@
+@mixin grid-container($col-widths: 50% 50%, $gutter: 4em) {
+  $cols: length($col-widths);
+  $gutter-half: $gutter * 0.5;
+  $gutter-adjust: $gutter - ($gutter / $cols);
+  display: flex;
+  @content;
+  > .grid--item {
+    margin-right: $gutter-half;
+    margin-left: $gutter-half;
+    @for $i from 1 through $cols {
+      &:nth-child(#{$cols}n + #{$i}) {
+        flex-basis: calc(#{nth($col-widths, $i)} - #{$gutter-adjust});
+      }
+    }
+    &:first-child {
+      margin-right: $gutter-half;
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+      margin-left: $gutter-half;
+    }
+  }
+}
+
+.grid--item {}

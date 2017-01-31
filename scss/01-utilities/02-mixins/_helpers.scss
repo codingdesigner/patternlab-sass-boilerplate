@@ -1,0 +1,20 @@
+////
+/// @group Helpers
+////
+
+// @todo refactor this file
+
+/// Clearfix: contain floats
+@mixin clearfix() {
+  &:after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+}
+
+/// Basic styles for almost all pseudo
+@mixin pseudo-base() {
+  display: block;
+  content: "";
+}

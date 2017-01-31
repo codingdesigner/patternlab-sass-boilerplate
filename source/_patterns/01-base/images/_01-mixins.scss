@@ -1,0 +1,9 @@
+////
+/// @group Images
+////
+
+@mixin image-auto-size() {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}

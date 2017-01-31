@@ -1,0 +1,13 @@
+////
+/// @group table
+////
+
+@mixin table-cell-defaults() {
+  padding: 2px 0.5em;
+  vertical-align: bottom;
+  text-align: left;
+}
+
+@mixin thead-defaults() {
+  border-bottom: 2px solid get-color(gray);
+}

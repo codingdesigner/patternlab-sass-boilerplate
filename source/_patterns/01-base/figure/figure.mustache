@@ -1,0 +1,21 @@
+<figure>
+  {{# figure.16x9 }}
+    {{> base-landscape-16x9 }}
+  {{/figure.16x9}}
+
+  {{# figure.4x3 }}
+    {{> base-landscape-4x3 }}
+  {{/figure.4x3}}
+
+  {{# figure.square }}
+    {{> base-square }}
+  {{/figure.square}}
+
+  {{^ figure }}
+    no image specified
+  {{/figure}}
+
+  {{# figure.figcaption }}
+    <figcaption>{{ headline.short }}</figcaption>
+  {{/ figure.figcaption }}
+</figure>

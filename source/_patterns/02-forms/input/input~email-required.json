@@ -1,0 +1,5 @@
+{
+  "type": "email",
+  "form_placeholder": "name@domain.com",
+  "required": true
+}

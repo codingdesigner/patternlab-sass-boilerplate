@@ -1,0 +1,95 @@
+////
+/// @group Utilities
+/// @link http://japborst.net/posts/sass-sines-and-cosines
+////
+
+$pi: 3.14159265359;
+$_precision: 10;
+
+/// Calculating pow
+/// @param $base
+/// @param $exp
+/// @link http://japborst.net/posts/sass-sines-and-cosines
+@function pow($base, $exp) {
+  $value: $base;
+  @if $exp > 1 {
+    @for $i from 2 through $exp {
+      $value: $value * $base;
+    }
+  }
+  @if $exp < 1 {
+    @for $i from 0 through -$exp {
+      $value: $value / $base;
+    }
+  }
+  @return $value;
+}
+
+/// Calculating fact
+/// @param $num
+/// @link http://japborst.net/posts/sass-sines-and-cosines
+@function fact($num) {
+  $fact: 1;
+  @if $num > 0 {
+    @for $i from 1 through $num {
+      $fact: $fact * $i;
+    }
+  }
+  @return $fact;
+}
+
+/// convert to unitless rad
+/// @param $angle
+/// @link http://japborst.net/posts/sass-sines-and-cosines
+@function _to_unitless_rad($angle) {
+  @if unit($angle) == "deg" {
+    $angle: $angle / 180deg * $pi;
+  }
+  @if unit($angle) == "rad" {
+    $angle: $angle / 1rad;
+  }
+  @return $angle;
+}
+
+/// Calculating sin
+/// @param $angle
+/// @link http://japborst.net/posts/sass-sines-and-cosines
+@function sin($angle) {
+  $a: _to_unitless_rad($angle);
+  $sin: $a;
+  @for $n from 1 through $_precision {
+    $sin: $sin + (pow(-1, $n) / fact(2 * $n + 1) ) * pow($a, (2 * $n + 1));
+  }
+  @return $sin;
+}
+
+/// Calculating cos
+/// @param $angle
+/// @link http://japborst.net/posts/sass-sines-and-cosines
+@function cos($angle) {
+  $a: _to_unitless_rad($angle);
+  $cos: 1;
+  @for $n from 1 through $_precision {
+    $cos: $cos + ( pow(-1, $n) / fact(2*$n) ) * pow($a, 2*$n);
+  }
+  @return $cos;
+}
+
+/// Calculating tan
+/// @param $angle
+/// @link http://japborst.net/posts/sass-sines-and-cosines
+@function tan($angle) {
+  @return sin($angle) / cos($angle);
+}
+
+/// Calculating Phi-a
+/// @param $number
+@function phi-a($number) {
+  @return $number / 1.61803398875;
+}
+
+/// Calculating Phi-a
+/// @param $number
+@function phi-b($number) {
+  @return $number - ($number / 1.61803398875);
+}

@@ -1,0 +1,12 @@
+////
+/// @group Typography
+////
+
+/// Font Map
+/// @type Map
+$font-map: (
+  sans-serif: #{"Proxima Nova", "Helvetica Neue", helvetica, sans-serif},
+  serif: #{"Adobe Caslon Pro", "Times New Roman", serif},
+  mono: #{monospace},
+  adobe-blank: #{'AdobeBlank', sans-serif}
+);

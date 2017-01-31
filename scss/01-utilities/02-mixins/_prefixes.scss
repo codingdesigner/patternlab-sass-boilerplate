@@ -1,0 +1,10 @@
+
+
+// sass-lint:disable no-vendor-prefixes
+@mixin add-prefix($property, $value) {
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  #{$property}: $value;
+}
+// sass-lint:enable no-vendor-prefixes

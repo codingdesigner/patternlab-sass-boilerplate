@@ -1,0 +1,35 @@
+////
+/// @group table
+////
+table {
+  width: 100%;
+}
+
+td {
+  @include table-cell-defaults();
+  vertical-align: baseline;
+}
+
+th {
+  @include table-cell-defaults();
+  vertical-align: bottom;
+}
+
+thead {
+  @include thead-defaults();
+}
+
+tbody {
+  tr {
+    border-bottom: 1px solid get-color(gray, light);
+    &:nth-of-type(even) {
+      background-color: rgba(get-color(white), 0.5);
+    }
+  }
+  td {
+    border-right: 1px solid get-color(gray, light);
+    &:last-of-type {
+      border-right: 0;
+    }
+  }
+}

@@ -1,0 +1,83 @@
+// @todo refactor this file
+
+// ==========================================================================
+// Global Mixins - Typography
+// ========================================================================== */
+
+// Mixin - Font-size rem
+// ========================================================================== */
+//
+// @params
+//  $px
+//  $root-px
+//
+
+// sass-lint:disable no-duplicate-properties
+@mixin fontsize-rem($px, $root-px: $root-typesize) {
+  font-size: $px;
+  font-size: #{$px / $root-px}rem;
+  @warn "Deprecated. Use 'fontsize-rem' function";
+}
+// sass-lint:enable no-duplicate-properties
+
+// Mixin - Margin-bottom rem
+// ========================================================================== */
+//
+// @params
+//  $px
+//  $root-px
+//
+
+// sass-lint:disable no-duplicate-properties
+@mixin margin-bottom-rem($px, $root-px: $root-typesize) {
+  margin-bottom: $px;
+  margin-bottom: #{$px / $root-px}rem;
+}
+// sass-lint:enable no-duplicate-properties
+
+// Others
+// ========================================================================== */
+@mixin list--item-date($side: right) {
+  @include padding-sides();
+  border: 1px solid $color--blue--pale;
+  background-color: $color--blue--paler;
+  font-size: ms(-1);
+  @if $side == right {
+    float: right;
+  }
+  @if $side == left {
+    float: left;
+  }
+}
+
+
+@mixin phi-btn() {
+  @include transform(translateX(-50%));
+  position: relative;
+  left: 50%;
+  background: $color--purple--dark;
+  width: 100%;
+  max-width: phi-a(100%);
+  text-decoration: none;
+  font-family: $font--futura;
+  font-size: ms(0);
+  font-weight: normal;
+}
+
+// Mixin - Reverse
+// ========================================================================== */
+
+@mixin reverse() {
+  background-color: $color--black;
+  color: $color--white;
+  a {
+    @include set-link-colors($color--white, $color--white, $color--white, $color--white, $color--white, false);
+    @include single-transition($property: border-bottom-color);
+    border-bottom-color: $color--gray--light;
+    &:hover,
+    &:active,
+    &:focus {
+      border-bottom-color: $color--white;
+    }
+  }
+}

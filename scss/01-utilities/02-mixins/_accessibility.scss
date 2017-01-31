@@ -1,0 +1,67 @@
+////
+/// @group Accessibility
+////
+
+/// Hide from both screenreaders and browsers: h5bp.com/u
+@mixin hidden() {
+  display: none;
+  visibility: hidden;
+}
+
+/// Hide only visually, but have it available for screenreaders
+@mixin visuallyhidden() {
+  position: absolute;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/// undo the effets of visuallyhidden()
+@mixin visuallyhidden-undo() {
+  position: static;
+  margin: auto;
+  border: inherit;
+  padding: auto;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: none;
+}
+
+/// Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard
+@mixin visuallyhidden--focusable() {
+  @include visuallyhidden();
+  &:active,
+  &:focus {
+    position: static;
+    margin: 0;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+  }
+}
+
+/// Hide visually and from screenreaders, but maintain layout
+@mixin invisible() {
+  visibility: hidden;
+}
+
+///
+@mixin hide() {
+  display: none;
+}
+
+///
+@mixin show() {
+  display: block;
+}
+
+///
+@mixin hide-text() {
+  text-indent: -9999px;
+}

@@ -1,0 +1,8 @@
+textarea {
+  @include defaults--field();
+  @include field-limit-width();
+  display: block;
+  &:focus {
+    @include focus();
+  }
+}

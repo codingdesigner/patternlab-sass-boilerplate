@@ -1,0 +1,200 @@
+////
+/// @group Links
+////
+
+// ==========================================================================
+// Global Mixins - Link
+// ========================================================================== */
+
+//
+// @See the following articles by Hugo Giraudel for a comprehensive
+// discussion around 04-extends and media queries.
+//
+// http://www.sitepoint.com/sass-extend-nobody-told-you/
+// http://www.sitepoint.com/cross-media-query-extend-sass/
+//
+
+//
+// Links Element Default Variables
+$link-normal-default: $cs-link-normal !default;
+$link-hover-default: $cs-link-hover !default;
+$link-active-default: $cs-link-active !default;
+$link-visited-default: $cs-link-visited !default;
+$link-focus-default: $cs-link-focus !default;
+
+$set-background-links-default: true !default;
+$link-background-size-default: 1px !default;
+
+$link-underline-normal-default: $cs-link-underline-normal !default;
+$link-underline-hover-default: $cs-link-underline-hover !default;
+$link-underline-active-default: $cs-link-underline-active !default;
+$link-underline-visited-default: $cs-link-underline-visited !default;
+$link-underline-focus-default: $cs-link-underline-focus !default;
+
+$link-background-normal-default: $cs-link-background-normal !default;
+$link-background-hover-default: $cs-link-background-hover !default;
+$link-background-active-default: $cs-link-background-active !default;
+$link-background-visited-default: $cs-link-background-visited !default;
+$link-background-focus-default: $cs-link-background-focus !default;
+$link-background-size-default: $base-line-px !default;
+$link-background-bkg-default: $cs-link-background-bkg !default;
+
+// Mixin - Set Link Defaults
+// ========================================================================== */
+@mixin set-link-defaults($underlines: true) {
+  @if ($underlines == false) {
+    text-decoration: none;
+  }
+  &:focus, &:hover {
+    outline: none;
+  }
+  cursor: pointer;
+}
+
+// Mixin - Set Link Colors
+// ========================================================================== */
+@mixin set-link-colors(
+  $link-normal: $link-normal-default,
+  $link-hover: $link-hover-default,
+  $link-active: $link-active-default,
+  $link-visited: $link-visited-default,
+  $link-focus: $link-focus-default
+) {
+  color: $link-normal;
+  &:link {
+    color: $link-normal;
+  }
+  &:hover {
+    color: $link-hover;
+  }
+  &:active {
+    color: $link-active;
+  }
+  &:visited {
+    color: $link-visited;
+  }
+  &:focus {
+    color: $link-focus;
+  }
+}
+
+@mixin set-link-transitions() {
+  transition-property: color, background, text-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+// Mixin - Set Underline Links
+// ========================================================================== */
+@mixin set-underline-links(
+  $link-underline-normal: $link-underline-normal-default,
+  $link-underline-hover: $link-underline-hover-default,
+  $link-underline-active: $link-underline-active-default,
+  $link-underline-visited: $link-underline-visited-default,
+  $link-underline-focus: $link-underline-focus-default,
+  $link-underline-size: $link-background-size-default
+) {
+  border-bottom: $link-underline-size solid $link-underline-normal;
+  &:visited {
+    border-bottom-color: $link-underline-visited;
+  }
+  &:focus {
+    border-bottom-color: $link-underline-focus;
+  }
+  &:hover {
+    border-bottom-color: $link-underline-hover;
+  }
+  &:active {
+    border-bottom-color: $link-underline-active;
+  }
+}
+
+// Mixin - Unset Underline Links
+// ========================================================================== */
+@mixin unset-underline-links() {
+  border-bottom: none;
+  text-decoration: none;
+  &:visited {
+    border-bottom: none;
+  }
+  &:focus {
+    border-bottom: none;
+  }
+  &:hover {
+    border-bottom: none;
+  }
+  &:active {
+    border-bottom: none;
+  }
+}
+
+@mixin background-link-gradient($background-color, $line-color, $size, $offset: 0) {
+  background-image: linear-gradient(to top, $background-color $offset, $line-color ($size + $offset), $background-color ($size + $offset));
+}
+
+// Set a background as the underline on a link, with a text shadow on the text.
+// Allows the decenders to "break" the underline
+@mixin set-background-links(
+  $link-background-normal: $link-background-normal-default,
+  $link-background-hover: $link-background-hover-default,
+  $link-background-active: $link-background-active-default,
+  $link-background-visited: $link-background-visited-default,
+  $link-background-focus: $link-background-focus-default,
+  $link-background-size: $link-background-size-default,
+  $bkg: $link-background-bkg-default,
+  $offset: 0) {
+  $bkg-gradient: transparent;
+  @include background-link-gradient($bkg-gradient, $link-background-normal, $link-background-size, $offset);
+  &:visited {
+    @include background-link-gradient($bkg-gradient, $link-background-visited, $link-background-size, $offset);
+  }
+  &:focus {
+    @include background-link-gradient($bkg-gradient, $link-background-focus, $link-background-size, $offset);
+  }
+  &:hover {
+    @include background-link-gradient($bkg-gradient, $link-background-hover, $link-background-size, $offset);
+  }
+  &:active {
+    @include background-link-gradient($bkg-gradient, $link-background-active, $link-background-size, $offset);
+  }
+  background-position: 100% 100%;
+  background-size: 100% 100%;
+  text-decoration: none;
+  text-shadow: $bkg -1px 1px 0, $bkg 0 1px 0, $bkg 1px 1px 0;
+}
+
+// unset the background underline
+@mixin unset-background-links() {
+  background-image: none;
+  text-decoration: none;
+  text-shadow: none;
+  &:visited {
+    background-image: none;
+    text-shadow: none;
+  }
+  &:focus {
+    background-image: none;
+    text-shadow: none;
+  }
+  &:hover {
+    background-image: none;
+    text-shadow: none;
+  }
+  &:active {
+    background-image: none;
+    text-shadow: none;
+  }
+}
+
+@mixin link-standard() {
+  @include set-link-defaults();
+  @include set-link-colors();
+  @include set-background-links();
+  @include set-link-transitions();
+}
+
+@mixin link-clean() {
+  @include set-link-defaults(false);
+  @include set-link-colors();
+  @include unset-background-links();
+}

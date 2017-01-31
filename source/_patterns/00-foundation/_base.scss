@@ -1,0 +1,26 @@
+// ==========================================================================
+// Base - Base Styles
+// ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  // @todo mixin to switch between fluid and fixed text sizes
+  // This will adjust the base HTML font size fluidly between the xsmall and
+  // xxlarge breakpoints to a font size between 14px minimum to 18px maximum.
+  //@include fluid-type(font-size, $bp--xsmall, $bp--xxlarge, $root-typesize--min, $root-typesize);
+  height: 100%;
+  line-height: $base-line-height-unitless;
+  color: $color-text;
+  font-family: $font-body;
+  font-size: unitless-convert($root-typesize, 16px) * 100%;
+}
+
+body {
+  position: relative;
+  //margin: 0 auto;
+  background-color: $color-background;
+  height: 100%;
+}

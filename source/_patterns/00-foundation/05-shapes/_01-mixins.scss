@@ -1,0 +1,31 @@
+////
+/// @group Shapes
+////
+
+/// Draw an outlined arrow
+/// @param {string} $direction [down] - accepts down, up
+/// @param {color} $color [get-color(gray]
+@mixin arrow($direction: down, $color: get-color(gray)) {
+  position: relative;
+  &:after {
+    display: inline-block;
+    position: relative;
+    margin-left: 0.75em;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: $color;
+    width: 0.58em;
+    height: 0.58em;
+    content: '';
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    @if $direction == down {
+      top: -2px;
+      transform: rotate(45deg);
+    } @else if $direction == right {
+      transform: rotate(-45deg);
+    }
+    @content;
+  }
+}

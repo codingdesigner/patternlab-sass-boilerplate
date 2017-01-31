@@ -1,0 +1,112 @@
+// ==========================================================================
+// Global Mixins - General
+// ========================================================================== */
+
+/// Mixin - EQ
+/// @param $state
+/// @content
+@mixin eq($state) {
+  &[data-eq-state="#{$state}"] {
+    @content;
+  }
+}
+
+/// Compensate for page margins
+/// @param {string} $sides [both] - both, left, right
+/// @todo refactor to layout
+@mixin margin-compensation($sides: 'both') {
+  @if ($sides == 'both') {
+    margin-right: -$side-margin;
+    margin-left: -$side-margin;
+    @include breakpoint($bp-typography-narrow) {
+      margin-right: -$side-margin--wide;
+      margin-left: -$side-margin--wide;
+    }
+  } @else if ($sides == 'left') {
+    margin-left: -$side-margin;
+    @include breakpoint($bp-typography-narrow) {
+      margin-left: -$side-margin--wide;
+    }
+  } @else if ($sides == 'right') {
+    margin-right: -$side-margin;
+    @include breakpoint($bp-typography-narrow) {
+      margin-right: -$side-margin--wide;
+    }
+  }
+}
+
+/// Compensate for page margins in inner items
+/// @param {string} $sides [both] - both, left, right
+/// @todo refactor to layout
+@mixin margin-compensation--inner($sides: 'both') {
+  @if ($sides == 'both') {
+    margin-right: $side-margin;
+    margin-left: $side-margin;
+    @include breakpoint($bp-typography-narrow) {
+      margin-right: $side-margin--wide;
+      margin-left: $side-margin--wide;
+    }
+  } @else if ($sides == 'left') {
+    margin-left: $side-margin;
+    @include breakpoint($bp-typography-narrow) {
+      margin-left: $side-margin--wide;
+    }
+  } @else if ($sides == 'right') {
+    margin-right: $side-margin;
+    @include breakpoint($bp-typography-narrow) {
+      margin-right: $side-margin--wide;
+    }
+  }
+}
+
+/// Arrow
+/// @param $color [black]
+/// @param $direction [right]
+/// @param $arrow-length [0.66em]
+/// @param $arrow-breadth [$arrow-length * 1.515151515]
+/// @todo refactor to shapes
+@mixin arrow($color: black, $direction: right, $arrow-length: 0.66em, $arrow-breadth: $arrow-length * 1.515151515) {
+  $arrow-breadth-half: $arrow-breadth / 2;
+  display: block;
+  position: absolute;
+  border-style: solid;
+  width: 0;
+  height: 0;
+  color: transparent;
+  content: '';
+  @if $direction == right {
+    border: {
+      width: $arrow-breadth-half 0 $arrow-breadth-half $arrow-length;
+      color: transparent transparent transparent $color;
+    }
+  }
+  @else if $direction == left {
+    border: {
+      width: $arrow-breadth-half $arrow-length $arrow-breadth-half 0;
+      color: transparent $color transparent transparent;
+    }
+  }
+  @else if $direction == up {
+    border: {
+      width: 0 $arrow-breadth-half $arrow-length $arrow-breadth-half;
+      color: transparent transparent $color transparent;
+    }
+  }
+  @else if $direction == down {
+    border: {
+      width: $arrow-length $arrow-breadth-half 0 $arrow-breadth-half;
+      color: $color transparent transparent transparent;
+    }
+  }
+  @content;
+}
+
+/// Plus
+/// @param $color [black]
+/// @todo refactor to shapes
+@mixin plus($color: black) {
+  display: block;
+  text-align: center;
+  color: $color;
+  content: '+';
+}

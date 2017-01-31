@@ -1,0 +1,13 @@
+////
+/// @group Lists
+////
+
+@mixin list-defaults() {
+  margin-bottom: $base-line-em;
+  padding-left: 2em;
+  li > ul,
+  li > ol {
+    margin-bottom: 0;
+    padding-left: 1.5em;
+  }
+}

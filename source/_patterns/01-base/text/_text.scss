@@ -1,0 +1,92 @@
+//blockquote {}
+//
+//img {
+//  max-width: 100%;
+//  height: auto;
+//}
+//
+//
+//hr {
+//  border-style: solid;
+//  border-width: 1px 0 0;
+//  color: currentColor;
+//  box-sizing: content-box;
+//  clear: both;
+//}
+//
+//// inline code wrappers, Markdown style
+//code {
+//  font-family: font(monospace);
+//  font-size: 1em;
+//  &:before {
+//    content: '`';
+//  }
+//  &:after {
+//    content: '`';
+//  }
+//  // don't show it when in a block of code
+//  pre & {
+//    &:after,
+//    &:before {
+//      content: '';
+//    }
+//  }
+//}
+//
+//abbr {
+//  font-variant: small-caps;
+//}
+//
+//abbr[title] {
+//  border-bottom: 1px dotted;
+//}
+//
+//dfn {
+//  font-style: italic;
+//}
+//
+//mark {
+//  //background: $c-spec-warning-yellow;
+//  //color: $c-neu-semi-black;
+//}
+//small {
+//  font-size: 80%;
+//}
+//sub {
+//  font-size: 75%;
+//  line-height: 0;
+//  position: relative;
+//  vertical-align: baseline;
+//  bottom: -.25em;
+//}
+//sup {
+//  font-size: 75%;
+//  line-height: 0;
+//  position: relative;
+//  vertical-align: baseline;
+//  top: -.5em;
+//}
+//
+//pre {
+//  overflow: auto;
+//  font-family: font(monospace);
+//  font-size: 1em;
+//}
+//
+//kbd {
+//  font-family: font(monospace);
+//  font-size: 1em;
+//}
+//
+//samp {
+//  font-family: font(monospace);
+//  font-size: 1em;
+//}
+//
+//b {
+//  font-weight: 700;
+//}
+//
+//strong {
+//  font-weight: 700;
+//}

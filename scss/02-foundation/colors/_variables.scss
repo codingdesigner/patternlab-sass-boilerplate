@@ -1,0 +1,37 @@
+////
+/// @group Colors
+////
+
+/// site background color
+/// @type color
+$color-background: get-color(white);
+/// site text color
+/// @type color
+$color-text: get-color(black, light);
+/// default heading color
+/// @type color
+$heading-color-default: $color-text;
+
+// Links
+/// link color (inactive)
+/// @type color
+$cs--link-a: get-color(blue, faded);
+/// link color (active)
+/// @type color
+$cs--link-b: get-color(blue, light);
+$cs-link-normal: $cs--link-a;
+$cs-link-hover: $cs--link-b;
+$cs-link-active: $cs--link-a;
+$cs-link-visited: $cs--link-a;
+$cs-link-focus: $cs--link-b;
+$cs-link-underline-normal: $cs--link-a;
+$cs-link-underline-hover: $cs--link-b;
+$cs-link-underline-active: $cs--link-a;
+$cs-link-underline-visited: $cs--link-a;
+$cs-link-underline-focus: $cs--link-b;
+$cs-link-background-normal: $cs--link-a;
+$cs-link-background-hover: $cs--link-b;
+$cs-link-background-active: $cs--link-a;
+$cs-link-background-visited: $cs--link-a;
+$cs-link-background-focus: $cs--link-b;
+$cs-link-background-bkg: $color-background;

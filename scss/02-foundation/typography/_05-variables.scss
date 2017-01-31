@@ -1,0 +1,102 @@
+////
+/// @group Typography
+////
+
+/// site body font
+/// @type font family string
+$font-body: get-font(sans-serif);
+/// site headline font
+/// @type font family string
+$font-headline: get-font(sans-serif);
+// @todo implement icon font
+//$font--font-awesome: FontAwesome;
+
+
+// Font size and line-height
+/// site root type size
+/// @type number
+$root-typesize: 16px;
+/// site minimum type size
+/// @type number
+/// @todo implement and document flexible type size
+$root-typesize--min: 14px;
+
+// @todo refactor?
+$base-font-size: $root-typesize;
+/// baseline size in pixels
+/// @type px
+$base-line-px: $root-typesize * 1.5;
+/// baseline size in ems
+/// @type em - calculated
+$base-line-em: em($base-line-px);
+// @todo refactor?
+$base-line-height: $base-line-px;
+/// baseline size w/o unit
+/// @type number - calculated
+$base-line-height-unitless:  unitless-convert($base-line-em);
+
+/// Choose to use __Sassy Modular Scale__?
+/// @link http://www.modularscale.com
+/// @type bool
+$use-modular-scale: true;
+/// __Sassy Modular Scale__ base size
+/// @link https://github.com/modularscale/modularscale-sass
+/// @type px | em
+$ms-base: em($root-typesize);
+/// __Sassy Modular Scale__ ratio
+/// @link https://github.com/modularscale/modularscale-sass
+/// @link defined ratios https://github.com/modularscale/modularscale-sass#ratios
+/// @type ratio | decimal | defined ratio
+$ms-ratio: $major-third;
+
+// Font sizes map
+$font-sizes: ();
+@if ($use-modular-scale == true) {
+  /// @type Map
+  /// if using modular scale
+  $font-sizes: (
+    -4: ms(-4),
+    -3: ms(-3),
+    -2: ms(-2),
+    -1: ms(-1),
+    0: ms(0),
+    1: ms(1),
+    2: ms(2),
+    3: ms(3),
+    4: ms(4),
+    5: ms(5),
+    6: ms(6),
+    7: ms(7),
+    8: ms(8),
+    9: ms(9),
+    10: ms(10)
+  );
+} @else {
+  /// @type Map
+  /// if not using modular scale
+  $font-sizes: (
+    -4: em(11.45px),
+    -3: em(13px),
+    -2: em(14px),
+    -1: em(15px),
+    0: 1em, // 16p,
+    1: em(21px),
+    2: em(22px),
+    3: em(26px),
+    4: em(27px),
+    5: em(48px),
+    6: em(56px),
+    7: em(64px),
+    8: em(72px),
+    9: em(88px),
+    10: em(96px)
+  );
+}
+
+// Heading sizes
+/// default heading sizes
+/// @type list
+$heading-sizes: get-font-size(5) get-font-size(4) get-font-size(3) get-font-size(2) get-font-size(1) get-font-size(0);
+/// default heading line heights
+/// @type list
+$heading-line-heights: 1.1 1.1 1.1 1.3 1.5 1.5;

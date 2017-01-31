@@ -1,0 +1,13 @@
+////
+/// @group Z-index
+////
+
+/// z-index getter
+/// @param {integer} $key
+/// @example scss
+///   .class {
+///     z-index: z("modal");
+///   }
+@function get-z($key) {
+  @return map-get($z-index, $key)
+}

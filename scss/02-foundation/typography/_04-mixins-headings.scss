@@ -1,0 +1,94 @@
+////
+/// @group Typography
+////
+
+// ==========================================================================
+// Components Atoms - Headings
+// ========================================================================== */
+
+// Header Element Default Variables
+// see scss/00-config/02-variables/_typography.scss
+// for final 02-variables
+$heading-sizes: 2.25em 2em 1.75em 1.5em 1.25em 1em !default;
+$heading-line-heights: 1 1 1 1 1 1 !default;
+$heading-color-default: $c-neu-semi-black !default;
+$font-headline: sans !default;
+
+
+/// Set Base Heading Styles
+/// @param {color} $heading-color
+/// @param {string} $heading-font [$font-heading]
+/// @param {integer} $weight [800]
+@mixin heading-base($heading-color, $heading-font: $font-headline, $weight: 800) {
+  @if ($heading-color == null) {
+    $heading-color: $heading-color-default;
+  }
+  margin-top: 0;
+  color: $heading-color;
+  font-family: $heading-font;
+  font-weight: $weight;
+}
+
+/// Set Heading Size
+/// @param {color} $size
+/// @param {number} $line-height [false]
+@mixin heading-size($size, $line-height: false) {
+  font-size: fontsize-rem($size);
+  @if $line-height {
+    line-height: $line-height;
+  }
+}
+
+/// Assign default H1 styles to a mixin so they can be applied anywhere
+/// @param {color | null} $heading-color [null]
+@mixin h1($heading-color: null) {
+  @include heading-base($heading-color);
+  @include heading-size(nth($heading-sizes, 1), nth($heading-line-heights, 1));
+  margin-top: base-line-calc(0.5, nth($heading-sizes, 1));
+  margin-bottom: base-line-calc(0.5, nth($heading-sizes, 1));
+}
+
+/// Assign default H2 styles to a mixin so they can be applied anywhere
+/// @param {color | null} $heading-color [null]
+@mixin h2($heading-color: null) {
+  @include heading-base($heading-color);
+  @include heading-size(nth($heading-sizes, 2), nth($heading-line-heights, 2));
+  margin-top: base-line-calc(0.5, nth($heading-sizes, 2));
+  margin-bottom: base-line-calc(0.5, nth($heading-sizes, 2));
+}
+
+/// Assign default H3 styles to a mixin so they can be applied anywhere
+/// @param {color | null} $heading-color [null]
+@mixin h3($heading-color: null) {
+  @include heading-base($heading-color, $weight: 500);
+  @include heading-size(nth($heading-sizes, 3), nth($heading-line-heights, 3));
+  margin-top: base-line-calc(0.5, nth($heading-sizes, 3));
+  margin-bottom: base-line-calc(0.5, nth($heading-sizes, 3));
+}
+
+/// Assign default H4 styles to a mixin so they can be applied anywhere
+/// @param {color | null} $heading-color [null]
+@mixin h4($heading-color: null) {
+  @include heading-base($heading-color, $heading-font: get-font(surveyor), $weight: 300);
+  @include heading-size(nth($heading-sizes, 4), nth($heading-line-heights, 4));
+  margin-top: base-line-calc(0.25, nth($heading-sizes, 4));
+  margin-bottom: base-line-calc(0.25, nth($heading-sizes, 4));
+}
+
+/// Assign default H5 styles to a mixin so they can be applied anywhere
+/// @param {color | null} $heading-color [null]
+@mixin h5($heading-color: null) {
+  @include heading-base($heading-color, $heading-font: get-font(surveyor), $weight: 500);
+  @include heading-size(nth($heading-sizes, 5), nth($heading-line-heights, 5));
+  margin-top: base-line-calc(0.25, nth($heading-sizes, 5));
+  margin-bottom: base-line-calc(0.25, nth($heading-sizes, 5));
+}
+
+/// Assign default H6 styles to a mixin so they can be applied anywhere
+/// @param {color | null} $heading-color [null]
+@mixin h6($heading-color: null) {
+  @include heading-base($heading-color, $heading-font: get-font(surveyor), $weight: 500);
+  @include heading-size(nth($heading-sizes, 6), nth($heading-line-heights, 6));
+  margin-top: base-line-calc(0.25, nth($heading-sizes, 6));
+  margin-bottom: base-line-calc(0.25, nth($heading-sizes, 6));
+}

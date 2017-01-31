@@ -1,0 +1,43 @@
+{
+  "block_class": "article-header",
+  "rubric": {
+    "title": "Culture"
+  },
+  "title": {
+    "text": "Shay Mitchell On Life After <em>“Pretty Little&nbsp;Liars”</em>"
+  },
+  "dek": {
+    "text": "Six years ago, Pretty Little Liars made Shay Mitchell a star overnight. Now she’s saying good-bye to her breakout role—and getting ready for an even bolder second&nbsp;act."
+  },
+  "byline": {
+    "modifier_class": "featured"
+  },
+  "dateline": {},
+  "figure": {
+    "16x9": true,
+    "4x3": false,
+    "square": false,
+    "figcaption": true
+  },
+  "recirc-popular": {
+    "recirc-list": {
+      "items": [
+        {
+          "title": "Lorem ipsum dolor sit amet consectetur one"
+        },
+        {
+          "title": "Lorem ipsum dolor sit amet consectetur two"
+        },
+        {
+          "title": "Lorem ipsum dolor sit amet consectetur three"
+        },
+        {
+          "title": "Lorem ipsum dolor sit amet consectetur four"
+        },
+        {
+          "title": "Lorem ipsum dolor sit amet consectetur five"
+        }
+      ]
+    }
+  }
+}

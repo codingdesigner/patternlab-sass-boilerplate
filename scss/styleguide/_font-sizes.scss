@@ -1,0 +1,41 @@
+////
+/// @group font-sizes
+////
+
+@import "../01-utilities/01-functions/_calculators.scss";
+@import "../02-foundation/typography/_05-variables.scss";
+
+.font-sizes {
+  .font-lists {
+    display: flex;
+  }
+  ol {
+    margin: 0 1em 0 0;
+    border-width: 0 1px 0 0;
+    border-style: solid;
+    border-color: lightgray;
+    padding: 0 1em 0 0;
+    overflow: hidden;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  li {
+    list-style: none;
+    $font-sizes-total: length($font-sizes);
+    $font-sizes-first: nth(map-keys($font-sizes), 1);
+    $font-sizes-last: nth(map-keys($font-sizes), $font-sizes-total);
+    $counter: 1;
+    @for $i from $font-sizes-first through $font-sizes-last {
+      &:nth-of-type(#{$counter}) {
+        @if ($i == 0) {
+          color: red;
+          &:before {
+            content: "BASE: ";
+          }
+        }
+        font-size: get-font-size($i);
+      }
+      $counter: $counter + 1;
+    }
+  }
+}

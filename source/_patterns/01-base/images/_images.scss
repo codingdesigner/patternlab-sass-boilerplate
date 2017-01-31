@@ -1,0 +1,7 @@
+////
+/// @group images
+////
+
+img {
+  @include image-auto-size();
+}

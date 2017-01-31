@@ -1,0 +1,17 @@
+////
+/// @group Typography
+////
+
+
+
+/// Get font from font map
+/// @param {string} $font
+@function get-font($font) {
+  @return map-get($font-map, $font);
+}
+
+/// Get font size from font size map
+/// @param {integer} $font-size
+@function get-font-size($font-size) {
+  @return map-get($font-sizes, $font-size);
+}

@@ -1,0 +1,44 @@
+select {
+  @include defaults--field--select();
+  &:focus {
+    @include focus();
+  }
+}
+
+.select-toggle {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  vertical-align: middle;
+  &:before {
+    position: absolute;
+    top: 1px;
+    right: 1.25em;
+    height: 2em;
+    content: "";
+  }
+  @include arrow(down) {
+    position: absolute;
+    top: 50%;
+    right: 0.5em;
+    transform: translateY(-30%) rotate(45deg);
+    border-color: currentColor;
+    width: 0.3em;
+    height: 0.3em;
+  }
+  select {
+    // sass-lint:disable no-vendor-prefixes
+    @supports (pointer-events: none) and ((-webkit-appearance: none) or (-moz-appearance: none) or (appearance: none)) {
+      // sass-lint:enable-all
+      z-index: 2;
+      border-radius: 0;
+      cursor: pointer;
+      padding-right: 1.5em;
+      max-width: 100%;
+      height: em(30px, 13px);
+      line-height: 1;
+      appearance: none;
+    }
+  }
+}

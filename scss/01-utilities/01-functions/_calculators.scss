@@ -1,0 +1,87 @@
+////
+/// @group Utilities
+////
+
+
+/// Calculate pixels
+/// @param $value
+/// @param $px
+@function px($value, $px: 16) {
+  @return (($value * $px) / 1em) * 1px;
+}
+
+/// Calculate Rem
+/// @param {pixel} $px
+/// @param {pixel} $root-px [$root-typesize] - root typesize in pixels
+@function fontsize-rem($px, $root-px: $root-typesize) {
+  @if unit($px) == em {
+    @return $px;
+  } @else {
+    @return #{$px / $root-px}rem;
+  }
+}
+
+/// Calculate ems
+/// @param $value
+/// @param $context
+@function em($value, $context: $base-font-size) {
+  @if unit($value) == '' {
+    $value: $value * 1em;
+  }
+  @if unit($value) != px {
+    $value: px($value);
+  }
+  @if unit($context) != px {
+    $context: px($context);
+  }
+  @return ($value / $context) * 1em;
+}
+
+/// Convert em to unitless
+/// @param {number} $value
+/// @param {number} $root [$root-typesize]
+@function unitless-convert($value, $root: $root-typesize) {
+  @if unit($value) == '' {
+    $value: $value;
+  }
+  @if unit($value) == 'em' {
+    $value: $value / 1em;
+  }
+  @if unit($value) == 'px' {
+    $value: $value / $root;
+  }
+  @return $value;
+}
+
+/// Strip unit
+/// @param {number} $value
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+/// Calculate the em value of n baselines
+/// @param {integer} $lines [1]
+/// @param {bool} $context [false]
+@function base-line-calc($lines: 1, $context: false) {
+  $calc: $lines * $base-line-em;
+  @if $context {
+    $calc: em($lines * $base-line-em, em($context));
+  }
+  @return $calc;
+}
+
+/// Calculate percentage widths from pixels based on common container width
+/// @param {number} $pixels
+/// @param {number} $container [1280px]
+@function res-width($pixels, $container: 1280px) {
+  @return percentage($pixels / $container);
+}
+
+// Return proper font name from fonts map in _fonts.scss
+// @param $font-index
+// @param $map
+//@function font-name($font-index, $map: $fonts) {
+//  @return map-get(map-get($map, #{$font-index}), font-name);
+//}
+
+

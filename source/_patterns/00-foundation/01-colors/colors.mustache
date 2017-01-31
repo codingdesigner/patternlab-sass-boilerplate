@@ -1,0 +1,20 @@
+<ul class="sg-colors">
+  {{# items }}
+    <li>
+      <div class="sg-swatch">
+        <div class="sg-swatch-image"></div>
+        <div class="sg-swatch-color" style="background-color: {{value}};"></div>
+      </div>
+      <div class="sg-info">
+        <span>{{value}}</span> <br/>
+        <code>{{name}}</code>
+        {{# comment }}<div class="comment">{{ comment }}</div>{{/comment}}
+      </div>
+    </li>
+  {{/ items }}
+
+</ul>
+
+{{# meta }}
+  <p> <small>{{ meta.description }}</small> </p>
+{{/meta}}

@@ -1,0 +1,51 @@
+////
+/// @group article
+////
+
+.header--global {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 2em;
+  background-color: get-color(gray, light);
+  padding: 1em;
+  color: get-color(gray);
+}
+
+.page-container {
+  margin: 0 auto;
+  width: 90vw;
+  max-width: 72em;
+}
+
+.article {}
+
+
+.author--link {}
+
+.container {}
+
+.layout--article {
+  @include breakpoint(728px) {
+    @include grid-container($col-widths: phi-a(100%) phi-b(100%)) {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      > .grid--item {
+        &:first-child {
+          flex-grow: 1;
+        }
+        &:last-child {
+          max-width: em(300px);
+        }
+      }
+    }
+  }
+}
+
+.article--body {}
+
+.article--sidebar {}
+
+.ad--300x600 {}
+
+.recirc--popular {}

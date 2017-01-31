@@ -1,0 +1,22 @@
+<header class="header--global">
+  GLOBAL NAV
+</header>
+<div class="page-container">
+  <div class="article">
+    {{> component-article-header }}
+    <section class="container layout--article">
+      <main class="article--body grid--item">
+        {{> base-figure }}
+        {{> base-p }}
+      </main>
+      <aside class="article--sidebar grid--item">
+        <div class="ad--300x600">
+          {{> base-ad-300x600 }}
+        </div>
+        {{# recirc-popular }}
+          {{> component-recirc-popular }}
+        {{/recirc-popular}}
+      </aside>
+    </section>
+  </div>
+</div>

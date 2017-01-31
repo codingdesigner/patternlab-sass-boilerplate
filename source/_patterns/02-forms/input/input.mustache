@@ -1,0 +1,4 @@
+<input type="{{# type }}{{ type }}{{/ type }}{{^ type}}text{{/ type}}" {{# min }}min="{{min}}"{{/min}} {{# max }}max="{{max}}"{{/max}} placeholder="{{ form_placeholder }}" {{# required }}required{{/ required }} value="">
+{{# required }}
+  {{> forms-validate-require }}
+{{/ required }}

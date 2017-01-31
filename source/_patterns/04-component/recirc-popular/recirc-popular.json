@@ -1,0 +1,21 @@
+{
+  "recirc-list": {
+    "items": [
+      {
+        "title": "Lorem ipsum dolor sit amet consectetur one"
+      },
+      {
+        "title": "Lorem ipsum dolor sit amet consectetur two"
+      },
+      {
+        "title": "Lorem ipsum dolor sit amet consectetur three"
+      },
+      {
+        "title": "Lorem ipsum dolor sit amet consectetur four"
+      },
+      {
+        "title": "Lorem ipsum dolor sit amet consectetur five"
+      }
+    ]
+  }
+}

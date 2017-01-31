@@ -1,0 +1,23 @@
+////
+/// @group article-header
+////
+
+.article-header {
+  margin-bottom: 4em;
+  font-family: get-font(serif);
+}
+
+.article-header__dek {
+  max-width: 30em;
+  @include breakpoint(30em) {
+    width: calc(#{phi-a(100%)} - 2em);
+  }
+}
+
+.article-header__byline {
+  margin: 0.75em auto;
+}
+
+.article-header__dateline {
+  margin: 0.75em auto;
+}

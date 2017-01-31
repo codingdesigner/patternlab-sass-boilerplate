@@ -1,0 +1,11 @@
+////
+/// @group byline
+////
+
+.byline {
+  font-size: get-font-size(-1);
+}
+
+.byline--featured {
+  font-size: get-font-size(0);
+}

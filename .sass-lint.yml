@@ -1,0 +1,57 @@
+# docs: https://github.com/sasstools/sass-lint
+# rules: https://github.com/sasstools/sass-lint/tree/master/docs/rules
+# Get the default of this file which will contain any new rules: https://github.com/sasstools/sass-lint/blob/master/docs/sass-lint.yml
+
+files:
+  include:
+    - 'scss/**/*.scss'
+    - 'source/_patterns/**/*.scss'
+options:
+  formatter: stylish
+  merge-default-rules: false
+rules:
+  indentation:
+    - 1
+    - size: 2
+  mixins-before-declarations: 1
+  nesting-depth:
+    - 1
+    - max-depth: 4
+  no-css-comments: 0
+  no-duplicate-properties:
+    - 1
+    -
+      exclude:
+        - src
+  no-extends: 2
+  no-ids: 1
+  no-important: 2
+  no-misspelled-properties:
+    - 1
+  no-vendor-prefixes: 1
+  placeholder-in-extend: 2
+  property-sort-order:
+    - 1
+    - order: concentric
+    # see: http://rhodesmill.org/brandon/2011/concentric-css/
+  quotes:
+    - 0
+    - style: single
+  space-after-colon:
+    - 1
+    - include: true
+  space-after-comma: 1
+  space-before-bang:
+    - 1
+    - include: true
+  space-before-brace:
+    - 1
+    - include: true
+  space-before-colon: 1
+  space-between-parens:
+    - 1
+    - include: false
+  trailing-semicolon: 1
+  url-quotes: 1
+  zero-unit: 1
+

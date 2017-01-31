@@ -1,0 +1,45 @@
+////
+/// @group responsive-table
+////
+
+.responsive-table {
+  thead {
+    @include visuallyhidden();
+    @include breakpoint($bp--responsive-table) {
+      @include visuallyhidden-undo();
+      border-bottom: 2px solid color(gray);
+    }
+  }
+  tr {
+    display: block;
+    border-bottom: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    @include breakpoint($bp--responsive-table) {
+      display: table-row;
+      border-bottom: 1px solid color(gray, light);
+    }
+  }
+  td {
+    display: flex;
+    border-right: 0;
+    border-bottom: 1px solid color(gray, x-light);
+    @include breakpoint($bp--responsive-table) {
+      display: table-cell;
+      border-right: 1px solid get-color(gray, light);
+      border-bottom: 0;
+    }
+    &:before {
+      display: inline-block;
+      margin-right: 0.5em;
+      border-right: 1px solid get-color(gray, dark);
+      padding-right: 0.5em;
+      min-width: 8em;
+      font-weight: bold;
+      content: attr(data-th) ' ';
+      @include breakpoint($bp--responsive-table) {
+        content: none;
+      }
+    }
+  }
+}
