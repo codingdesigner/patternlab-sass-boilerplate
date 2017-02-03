@@ -94,8 +94,8 @@ module.exports = {
     bowerBasePath: './',
     scssToJson: [
       {
-        src:  'source/_patterns/00-base/01-colors/_color-vars.scss',
-        dest: 'source/_patterns/00-base/01-colors/colors.json',
+        src:  'scss/02-foundation/colors/_schema.scss',
+        dest: 'source/_patterns/00-foundation/01-colors/colors.json',
         lineStartsWith: '//get-color',
         allowVarValues: false,
       },
@@ -112,8 +112,8 @@ module.exports = {
       //   allowVarValues: false,
       // },
       {
-        src: 'source/_patterns/00-base/04-breakpoints/_breakpoints.scss',
-        dest: 'source/_patterns/00-base/04-breakpoints/breakpoints.json',
+        src: 'scss/02-foundation/breakpoints/_variables.scss',
+        dest: 'source/_patterns/00-foundation/04-breakpoints/breakpoints.json',
         lineStartsWith: '$bp--',
         allowVarValues: false,
       },

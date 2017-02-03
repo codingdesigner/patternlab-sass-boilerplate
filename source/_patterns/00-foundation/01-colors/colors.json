@@ -1,6 +1,102 @@
 {
-  "items": [],
+  "items": [
+    {
+      "name": "get-color(red)",
+      "value": "red",
+      "comment": ""
+    },
+    {
+      "name": "get-color(orange)",
+      "value": "orange",
+      "comment": ""
+    },
+    {
+      "name": "get-color(yellow)",
+      "value": "yellow",
+      "comment": ""
+    },
+    {
+      "name": "get-color(green)",
+      "value": "green",
+      "comment": ""
+    },
+    {
+      "name": "get-color(blue)",
+      "value": "blue",
+      "comment": ""
+    },
+    {
+      "name": "get-color(blue, light)",
+      "value": "lightblue",
+      "comment": ""
+    },
+    {
+      "name": "get-color(blue, faded)",
+      "value": "#8093AB",
+      "comment": ""
+    },
+    {
+      "name": "get-color(indigo)",
+      "value": "indigo",
+      "comment": ""
+    },
+    {
+      "name": "get-color(violet)",
+      "value": "violet",
+      "comment": ""
+    },
+    {
+      "name": "get-color(gray)",
+      "value": "gray",
+      "comment": ""
+    },
+    {
+      "name": "get-color(gray, light)",
+      "value": "#e5e5e5",
+      "comment": ""
+    },
+    {
+      "name": "get-color(gray, dark)",
+      "value": "darkgray",
+      "comment": ""
+    },
+    {
+      "name": "get-color(white)",
+      "value": "white",
+      "comment": ""
+    },
+    {
+      "name": "get-color(white, warm)",
+      "value": "hsl(48, 20%, 95%)",
+      "comment": ""
+    },
+    {
+      "name": "get-color(white, transparent)",
+      "value": "hsla(0, 0%, 100%, 0)",
+      "comment": ""
+    },
+    {
+      "name": "get-color(white, halftrans)",
+      "value": "hsla(0, 0%, 100%, 0.5)",
+      "comment": ""
+    },
+    {
+      "name": "get-color(white, semitrans)",
+      "value": "hsla(0, 0%, 100%, 0.15)",
+      "comment": ""
+    },
+    {
+      "name": "get-color(black)",
+      "value": "black",
+      "comment": ""
+    },
+    {
+      "name": "get-color(black, light)",
+      "value": "hsl(0, 0%, 8%)",
+      "comment": ""
+    }
+  ],
   "meta": {
-    "description": "To add to these items, use Sass variables that start with <code>//get-color</code> in <code>source/_patterns/00-base/01-colors/_color-vars.scss</code>"
+    "description": "To add to these items, use Sass variables that start with <code>//get-color</code> in <code>scss/02-foundation/colors/_schema.scss</code>"
   }
 }

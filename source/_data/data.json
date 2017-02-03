@@ -148,18 +148,15 @@
   "fonts": [
     {
       "name": "sans-serif",
-      "value": "sans-serif",
-      "comment": ""
+      "value": "'Proxima Nova', 'Helvetica Neue', helvetica, sans-serif"
     },
     {
       "name": "serif",
-      "value": "serif",
-      "comment": ""
+      "value": "'Adobe Caslon Pro', 'Times New Roman', serif"
     },
     {
-      "name": "mono",
-      "value": "monospace",
-      "comment": ""
+      "name": "monospace",
+      "value": "monospace"
     }
   ],
   "form_placeholder": "Lorem ipsum dolor"

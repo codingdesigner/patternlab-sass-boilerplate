@@ -1,23 +1,25 @@
-{{# fonts }}
-  <div>
-    <h2 style="font-family: {{ value }};">{{ value }}</h2>
-    <div>
-      <pre><code>
-.class {
-  font-family: get-font({{ name }});
-}
-      </code></pre>
+<div class="font-families">
+  {{# fonts }}
+    <div class="font-stack">
+      <h2>{{ name }}</h2>
+      <dl style="font-family: {{ value }}">
+        <div class="font-style">
+          <dt>Normal</dt>
+          <dd>Lorum ipsum dolor sit amet</dd>
+        </div>
+        <div class="font-style">
+          <dt>Bold</dt>
+          <dd style="font-weight: bold">Lorum ipsum dolor sit amet</dd>
+        </div>
+        <div class="font-style">
+          <dt>Italic</dt>
+          <dd style="font-style: italic">Lorum ipsum dolor sit amet</dd>
+        </div>
+      </dl>
+      <div class="scss-example">
+        <pre><code>font-family: get-font({{ name }});</code></pre>
+      </div>
     </div>
+  {{/fonts}}
+</div>
 
-    <h6>Normal</h6>
-    <div style="font-family: {{ value }}; font-size: 2em;">{{ excerpt.short }}</div>
-
-    <h6>Bold</h6>
-    <div style="font-family: {{ value }}; font-size: 2em; font-weight: bold;">{{ excerpt.short }}</div>
-
-    <h6>Italic</h6>
-    <div style="font-family: {{ value }}; font-size: 2em; font-style: italic;">{{ excerpt.short }}</div>
-
-  </div>
-  <hr>
-{{/fonts}}
